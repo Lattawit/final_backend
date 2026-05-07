@@ -135,7 +135,7 @@ router.post('/login', async (req, res) => {
 router.get('/profile', authMiddleware, async (req, res) => {
   try {
     const [rows] = await pool.query(
-      'SELECT id, fname, lname, username, email FROM users WHERE id = ?',
+      'SELECT id, fname, lname, username, email, profile_image FROM users WHERE id = ?',
       [req.user.id]
     );
 
